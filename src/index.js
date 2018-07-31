@@ -29,7 +29,7 @@ function deepClone(obj) {
     var newObject = {};
     Object.keys(obj).forEach(k => {
       if (typeof obj[k] === "object") {
-        Object.assign(newObject, { [k]: deepClone(obj[k], true) });
+        Object.assign(newObject, { [k]: deepClone(obj[k]) });
       } else {
         Object.assign(newObject, { [k]: obj[k] });
       }
