@@ -1,20 +1,9 @@
-const myObj = {
-  name: "Paddy",
-  address: {
-    town: "Lerum",
-    country: "Sweden",
-    buildings: [34, { floor: 5 }]
-  },
-  badges: ["foo", { b1: "bar" }]
-};
-
-const myArr = ["foo", { bar: { foo: "bar" } }];
-
 function isArray(obj) {
   return Object.prototype.toString.call(obj) === "[object Array]";
 }
 
 function deepClone(obj) {
+  if (typeof obj !== "object") return obj;
   if (isArray(obj)) {
     var newArray = [];
     obj.forEach(item => {
@@ -38,10 +27,4 @@ function deepClone(obj) {
   }
 }
 
-var n = deepClone(myObj);
-console.log(myObj);
-console.log(n);
-
-var a = deepClone(myArr);
-console.log(myArr);
-console.log(a);
+module.exports = deepClone;
