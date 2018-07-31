@@ -17,7 +17,7 @@ function isArray(obj) {
 function deepClone(obj) {
   if (isArray(obj)) {
     var newArray = [];
-    obj.map(item => {
+    obj.forEach(item => {
       if (typeof item === "object") {
         newArray.push(deepClone(item));
       } else {
